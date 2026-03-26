@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>boykisser lol</title>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #000;
+    overflow: hidden;
+}
+#slider {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 50px auto;
+    border: 5px solid #fff;
+    border-radius: 10px;
+}
+</style>
+</head>
+<body>
+
+<img id="slider" src="image1.png" alt="Слайд">
+
+<audio id="bgMusic" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const images = ["image1.png", "image2.png"];
+let index = 0;
+
+function changeImage() {
+    index = (index + 1) % images.length;
+    document.getElementById("slider").src = images[index];
+}
+
+setInterval(changeImage, 500);
+
+// Спроба відразу включити звук (працює в більшості браузерів)
+document.getElementById('bgMusic').volume = 1;
+document.getElementById('bgMusic').play().catch(()=>{});
+</script>
+
+</body>
+</html>
